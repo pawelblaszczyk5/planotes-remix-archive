@@ -41,6 +41,17 @@ module.exports = {
 				alphabetize: { order: 'asc', caseInsensitive: true },
 			},
 		],
+		'no-restricted-imports': [
+			'error',
+			{
+				patterns: [
+					{
+						group: ['.*'],
+						message: "Don't use relative imports",
+					},
+				],
+			},
+		],
 		'unicorn/no-null': 'off',
 		'unicorn/prevent-abbreviations': 'off',
 		'unicorn/text-encoding-identifier-case': 'off',
