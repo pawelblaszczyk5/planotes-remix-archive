@@ -8,6 +8,7 @@ services:
     healthCheckPath: /health
     buildCommand: npm i -g pnpm && pnpm i && pnpm build
     startCommand: pnpm start
+    autoDeploy: false
     envVars:
       - key: NODE_VERSION
         value: ~16.15.0
@@ -20,4 +21,5 @@ services:
 
 databases:
   - name: main
+    region: frankfurt
     plan: free
