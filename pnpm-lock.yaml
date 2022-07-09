@@ -8,6 +8,7 @@ specifiers:
   '@remix-run/node': ^1.6.4
   '@remix-run/react': ^1.6.4
   '@remix-run/serve': ^1.6.4
+  '@tsconfig/strictest': ^1.0.1
   '@types/react': ^18.0.15
   '@types/react-dom': ^18.0.6
   '@typescript-eslint/eslint-plugin': ^5.30.5
@@ -46,6 +47,7 @@ devDependencies:
   '@commitlint/config-conventional': 17.0.3
   '@commitlint/cz-commitlint': 17.0.3_nlwf7yf5555jiq2ch63nbqq5xy
   '@remix-run/dev': 1.6.4_jzpzrimekk3fabjuggj4nchnou
+  '@tsconfig/strictest': 1.0.1
   '@types/react': 18.0.15
   '@types/react-dom': 18.0.6
   '@typescript-eslint/eslint-plugin': 5.30.5_6zdoc3rn4mpiddqwhppni2mnnm
@@ -1850,6 +1852,10 @@ packages:
 
   /@tsconfig/node16/1.0.3:
     resolution: {integrity: sha512-yOlFc+7UtL/89t2ZhjPvvB/DeAr3r+Dq58IgzsFkOAvVC6NMJXmCGjbptdXdR9qsX7pKcTL+s87FtYREi2dEEQ==}
+    dev: true
+
+  /@tsconfig/strictest/1.0.1:
+    resolution: {integrity: sha512-7O8Q537UQdTZSKEV0f5WRLRFtfL9B8agGqIZrCOwOiWvbjZWPP2rAoZ7LHcwjdG4vnjdleHMEE+ZetM+lhRkcA==}
     dev: true
 
   /@types/acorn/4.0.6:

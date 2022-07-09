@@ -12,7 +12,9 @@
 		"lint": "eslint --ignore-path .gitignore --fix --ext .ts,.tsx,.js,.jsx .",
 		"format": "prettier --ignore-path .gitignore -w \"./**/*.{js,jsx,ts,tsx,html,css,json}\"",
 		"husky": "husky install",
-		"cz": "cz"
+		"cz": "cz",
+		"ci:lint": "eslint --ignore-path .gitignore --max-warnings 0 --ext .ts,.tsx,.js,.jsx .",
+		"ci:typecheck": "tsc"
 	},
 	"lint-staged": {
 		"*.{md,json,html}": [
@@ -40,6 +42,7 @@
 		"@commitlint/config-conventional": "^17.0.3",
 		"@commitlint/cz-commitlint": "^17.0.3",
 		"@remix-run/dev": "^1.6.4",
+		"@tsconfig/strictest": "^1.0.1",
 		"@types/react": "^18.0.15",
 		"@types/react-dom": "^18.0.6",
 		"@typescript-eslint/eslint-plugin": "^5.30.5",
