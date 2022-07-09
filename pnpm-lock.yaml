@@ -15,6 +15,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.30.5
   autoprefixer: ^10.4.7
   commitizen: ^4.2.4
+  development: ^0.0.6
   eslint: ^8.19.0
   eslint-config-prettier: ^8.5.0
   eslint-import-resolver-typescript: ^3.2.5
@@ -39,6 +40,7 @@ dependencies:
   '@remix-run/node': 1.6.4_biqbaboplfbrettd7655fr4n2y
   '@remix-run/react': 1.6.4_biqbaboplfbrettd7655fr4n2y
   '@remix-run/serve': 1.6.4_biqbaboplfbrettd7655fr4n2y
+  development: 0.0.6
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
 
@@ -3382,6 +3384,12 @@ packages:
       minimist: 1.2.6
     dev: true
 
+  /development/0.0.6:
+    resolution: {integrity: sha512-EccMCd/zEvefRPvEShgojPNnlIwgtwP4Y37n+22sR2Q2vN0JaiaomiO9p+Fw5dm2ChiCniCdWc4K4cx85xGtgQ==}
+    dependencies:
+      npm: 1.4.29
+    dev: false
+
   /didyoumean/1.2.2:
     resolution: {integrity: sha512-gxtyfqMg7GKyhQmb056K7M3xszy/myH8w+B4RT+QXBQsvAOdc3XymqDDPHx1BgPgsdAA5SIifona89YtRATDzw==}
     dev: true
@@ -6535,6 +6543,66 @@ packages:
     dependencies:
       path-key: 4.0.0
     dev: true
+
+  /npm/1.4.29:
+    resolution: {integrity: sha512-iIQzagGYulHrj1gI2vXIHpoa6PztO8yTwTi6K6QzgVamSe9jr1ZOpKw9XcpmskohJthbG3ln8qnRpMEYGrN/YA==}
+    engines: {node: '>=0.8', npm: '1'}
+    hasBin: true
+    dev: false
+    bundledDependencies:
+      - abbrev
+      - ansi
+      - ansicolors
+      - ansistyles
+      - archy
+      - block-stream
+      - char-spinner
+      - child-process-close
+      - chmodr
+      - chownr
+      - cmd-shim
+      - columnify
+      - editor
+      - fstream
+      - fstream-npm
+      - github-url-from-git
+      - github-url-from-username-repo
+      - glob
+      - graceful-fs
+      - inflight
+      - inherits
+      - ini
+      - init-package-json
+      - lockfile
+      - lru-cache
+      - minimatch
+      - mkdirp
+      - node-gyp
+      - nopt
+      - npm-cache-filename
+      - npm-install-checks
+      - npm-registry-client
+      - npm-user-validate
+      - npmconf
+      - npmlog
+      - once
+      - opener
+      - osenv
+      - path-is-inside
+      - read
+      - read-installed
+      - read-package-json
+      - request
+      - retry
+      - rimraf
+      - semver
+      - sha
+      - slide
+      - sorted-object
+      - tar
+      - text-table
+      - uid-number
+      - which
 
   /object-assign/4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
