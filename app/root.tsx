@@ -2,7 +2,7 @@ import type { LinksFunction, MetaFunction } from '@remix-run/node';
 
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 
-import styles from './styles/app.css';
+import styles from '~/styles/app.output.css';
 
 export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }];
 
@@ -25,7 +25,7 @@ const Screen = () => (
 			<Outlet />
 			<ScrollRestoration />
 			<Scripts />
-			{process.env.NODE_ENV === 'development' ? <LiveReload /> : null}
+			<LiveReload />
 		</body>
 	</html>
 );
