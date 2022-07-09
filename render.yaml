@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: planotes:web
+    name: remix-app
     env: node
     region: frankfurt
     plan: free
@@ -20,5 +20,5 @@ services:
 
 databases:
   - name: planotes
-    databaseName: planotes:db
+    databaseName: db
     plan: free
