@@ -1,37 +1,32 @@
-import type { MetaFunction } from "@remix-run/node";
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "@remix-run/react";
-import styles from "./styles/app.css";
+import type { LinksFunction, MetaFunction } from '@remix-run/node';
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 
-export function links() {
-  return [{ rel: "stylesheet", href: styles }];
-}
+import styles from './styles/app.css';
+
+export const links: LinksFunction = () => [{ rel: 'stylesheet', href: styles }];
 
 export const meta: MetaFunction = () => ({
-  charset: "utf-8",
-  title: "New Remix App",
-  viewport: "width=device-width,initial-scale=1",
+	charset: 'utf-8',
+	title: 'New Remix App',
+	viewport: 'width=device-width,initial-scale=1',
 });
 
-export default function App() {
-  return (
-    <html className="bg-slate-200" lang="en">
-      <head>
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        {process.env.NODE_ENV === "development" ? <LiveReload /> : null}
-      </body>
-    </html>
-  );
-}
+const Screen = () => (
+	<html
+		className="bg-slate-200"
+		lang="en"
+	>
+		<head>
+			<Meta />
+			<Links />
+		</head>
+		<body>
+			<Outlet />
+			<ScrollRestoration />
+			<Scripts />
+			{process.env.NODE_ENV === 'development' ? <LiveReload /> : null}
+		</body>
+	</html>
+);
+
+export default Screen;
