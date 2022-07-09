@@ -6,7 +6,7 @@ services:
     plan: free
     branch: main
     healthCheckPath: /health
-    buildCommand: npm i -g pnpm && pnpm i && pnpm build
+    buildCommand: npm i -g pnpm && pnpm i -PD --frozen-lockfile && pnpm build
     startCommand: pnpm start
     autoDeploy: false
     envVars:
