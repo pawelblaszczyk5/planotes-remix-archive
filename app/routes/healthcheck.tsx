@@ -1,16 +1,27 @@
 import type { LoaderFunction } from '@remix-run/node';
 
-export const loader: LoaderFunction = async ({ request }) => {
+import { db } from '~/utils/db.server';
+
+const fetchSelf = async (request: Request) => {
 	const host = request.headers.get('host');
 	const selfURL = new URL('/', `http://${host}`);
+	const response = await fetch(selfURL.toString(), { method: 'HEAD' });
 
+	if (!response.ok) throw new Error('Self head fetch failed');
+};
+
+const queryDB = async () => {
+	// TODO: Change after users are used
+	await db.user.findMany();
+};
+
+export const loader: LoaderFunction = async ({ request }) => {
 	try {
-		const response = await fetch(selfURL.toString(), { method: 'HEAD' });
+		await Promise.all([fetchSelf(request), queryDB()]);
 
-		if (response.ok) return new Response('OK', { status: 204 });
-
-		return new Response('FAIL', { status: 500 });
-	} catch {
+		return new Response('OK', { status: 204 });
+	} catch (error) {
+		console.log(error);
 		return new Response('FAIL', { status: 500 });
 	}
 };

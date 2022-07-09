@@ -6,7 +6,7 @@ services:
     plan: free
     branch: main
     healthCheckPath: /healthcheck
-    buildCommand: npm i -g pnpm && NODE_ENV=development pnpm i --frozen-lockfile && pnpm build
+    buildCommand: npm i -g pnpm && NODE_ENV=development pnpm i --frozen-lockfile && pnpm build && pnpm prisma:deploy
     startCommand: pnpm start
     autoDeploy: false
     envVars:
