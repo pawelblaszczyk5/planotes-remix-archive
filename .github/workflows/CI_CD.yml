@@ -16,7 +16,6 @@ jobs:
         uses: actions/setup-node@270253e841af726300e85d718a5f606959b2903c
         with:
           node-version: '16'
-          cache: 'npm'
 
       - uses: pnpm/action-setup@v2.0.1
         name: Install pnpm
@@ -49,3 +48,9 @@ jobs:
 
       - name: Typecheck
         run: pnpm ci:typecheck
+
+      - name: Trigger render deploy via webhook
+        uses: zzzze/webhook-trigger@d83e16935dfe5c1362f730e4326a59519d77ae5b
+        with:
+          data: '{"event_type":"build"}'
+          webhook_url: ${{ secrets.RENDER_WEBHOOK_URL }}
