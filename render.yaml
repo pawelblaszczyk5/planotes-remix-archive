@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: planotes:web
+    env: node
+    region: frankfurt
+    plan: free
+    branch: main
+    healthCheckPath: /health
+    buildCommand: npm i -g pnpm && pnpm i && pnpm build
+    startCommand: pnpm start
+    envVars:
+      - key: NODE_VERSION
+        value: ~16.15.0
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: prod
+          property: connectionString
+
+databases:
+  - name: planotes
+    databaseName: planotes:db
+    plan: free
