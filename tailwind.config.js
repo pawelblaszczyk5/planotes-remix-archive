@@ -1,8 +1,8 @@
-// eslint-disable-next-line no-undef, unicorn/prefer-module
+/* eslint-disable unicorn/prefer-module,no-undef */
 module.exports = {
 	content: ['./app/**/*.{js,ts,jsx,tsx}'],
 	theme: {
 		extend: {},
 	},
-	plugins: [],
+	plugins: [require('@tailwindcss/forms')],
 };
