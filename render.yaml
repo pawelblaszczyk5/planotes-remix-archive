@@ -18,6 +18,7 @@ services:
         fromDatabase:
           name: main
           property: connectionString
+      - fromGroup: planotes-email
 
 databases:
   - name: main
