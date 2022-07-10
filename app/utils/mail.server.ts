@@ -3,12 +3,7 @@ import type SMTPTransport from 'nodemailer/lib/smtp-transport';
 
 import { createTransport } from 'nodemailer';
 
-let transporter: Transporter;
-
-declare global {
-	// eslint-disable-next-line no-var -- there needs to be var to work with globalThis
-	var __transporter: Transporter | undefined;
-}
+import { createStableModule } from '~/utils/create-stable-module';
 
 const transporterConfig: SMTPTransport.Options = {
 	host: process.env.SMTP_HOST,
@@ -24,14 +19,8 @@ const transporterConfig: SMTPTransport.Options = {
 	},
 };
 
-if (process.env.NODE_ENV === 'production') {
-	transporter = createTransport(transporterConfig);
-} else {
-	if (!global.__transporter) {
-		global.__transporter = createTransport(transporterConfig);
-	}
-	transporter = global.__transporter;
-}
+const createTransporter = () => createTransport(transporterConfig);
+const transporter: Transporter = createStableModule('transporter', createTransporter);
 
 interface SendEmailOptions {
 	html: string;
