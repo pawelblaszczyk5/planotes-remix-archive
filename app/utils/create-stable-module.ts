@@ -8,16 +8,13 @@ declare global {
 global.__globalModules = new Map();
 
 export const createStableModule = <Module>(key: string, createModule: () => Module): Module => {
-	let module: Module;
-
 	if (process.env.NODE_ENV === 'production') {
-		module = createModule();
-	} else {
-		if (!global.__globalModules.has(key)) {
-			global.__globalModules.set(key, createModule());
-		}
-		module = global.__globalModules.get(key) as Module;
+		return createModule();
 	}
 
-	return module;
+	if (!global.__globalModules.has(key)) {
+		global.__globalModules.set(key, createModule());
+	}
+
+	return global.__globalModules.get(key) as Module;
 };
