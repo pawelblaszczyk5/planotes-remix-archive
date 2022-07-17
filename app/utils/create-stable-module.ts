@@ -1,5 +1,7 @@
 // This helper allows creating modules that are stable across Remix development live reloading
 
+import { env } from '~/utils/env.server';
+
 declare global {
 	// eslint-disable-next-line no-var
 	var __globalModules: Map<string, unknown>;
@@ -8,7 +10,7 @@ declare global {
 global.__globalModules = new Map();
 
 export const createStableModule = <Module>(key: string, createModule: () => Module): Module => {
-	if (process.env.NODE_ENV === 'production') {
+	if (env.NODE_ENV === 'production') {
 		return createModule();
 	}
 

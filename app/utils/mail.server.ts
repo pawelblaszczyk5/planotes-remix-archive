@@ -4,17 +4,18 @@ import type SMTPTransport from 'nodemailer/lib/smtp-transport';
 import { createTransport } from 'nodemailer';
 
 import { createStableModule } from '~/utils/create-stable-module';
+import { env } from '~/utils/env.server';
 
 const transporterConfig: SMTPTransport.Options = {
-	host: process.env.SMTP_HOST,
+	host: env.SMTP_HOST,
 	port: 587,
 	auth: {
-		user: process.env.SMTP_USER,
-		pass: process.env.SMTP_PASSWORD,
+		user: env.SMTP_USER,
+		pass: env.SMTP_PASSWORD,
 	},
 	dkim: {
-		privateKey: process.env.DKIM_PRIVATE_KEY,
-		keySelector: process.env.DKIM_SELECTOR,
+		privateKey: env.DKIM_PRIVATE_KEY,
+		keySelector: env.DKIM_SELECTOR,
 		domainName: 'planotes.xyz',
 	},
 };
@@ -37,7 +38,7 @@ interface SendEmailResult {
 export const sendEmail = async ({ html, receiver, plainTextVersion, senderName, subject }: SendEmailOptions) => {
 	try {
 		const { accepted }: SendEmailResult = await transporter.sendMail({
-			from: `"${senderName}" <${process.env.SMTP_USER}>`,
+			from: `"${senderName}" <${env.SMTP_USER}>`,
 			to: receiver,
 			subject,
 			text: plainTextVersion,
