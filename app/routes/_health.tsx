@@ -20,8 +20,7 @@ export const loader: LoaderFunction = async ({ request }) => {
 		await Promise.all([fetchSelf(request), queryDB()]);
 
 		return new Response('OK', { status: 204 });
-	} catch (error) {
-		console.log(error);
+	} catch {
 		return new Response('FAIL', { status: 500 });
 	}
 };
